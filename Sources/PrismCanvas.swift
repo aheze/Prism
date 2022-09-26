@@ -9,9 +9,20 @@
 
 import SwiftUI
 
-struct PrismCanvas<Content: View>: View {
-    @ViewBuilder let content: Content
-    var body: some View {
+public struct PrismCanvas<Content: View>: View {
+    var tilt: CGFloat
+    var content: Content
+    
+    public init(
+        tilt: CGFloat,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.tilt = tilt
+        self.content = content()
+    }
+    
+    public var body: some View {
         content
+            .tiltContent(tilt: tilt)
     }
 }

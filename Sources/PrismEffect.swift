@@ -18,7 +18,7 @@ extension View {
 
     func tiltRight(tilt: CGFloat) -> some View {
         modifier(
-            PrismLeftEffect(tilt: tilt)
+            PrismRightEffect(tilt: tilt)
         )
     }
 

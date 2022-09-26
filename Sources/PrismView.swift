@@ -9,12 +9,19 @@
 import SwiftUI
 
 struct PrismView<Content: View, Left: View, Right: View>: View {
-    var size: CGSize
+    // MARK: - Basic configuration
+
     var tilt: CGFloat
+    var size: CGSize
     var extrusion: CGFloat
+
+    // MARK: - Optional properties
+
     var levitation = CGFloat(0)
     var shadowColor = Color.black
     var shadowOpacity = CGFloat(0.25)
+
+    // MARK: - Views
 
     @ViewBuilder let content: Content
     @ViewBuilder let left: Left
