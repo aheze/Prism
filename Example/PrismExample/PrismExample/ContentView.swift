@@ -22,6 +22,7 @@ struct ContentView: View {
         VStack(spacing: 30) {
             Text("Prism")
                 .tracking(20)
+                
                 .offset(x: 10)
                 .textCase(.uppercase)
                 .font(.system(.largeTitle).weight(.ultraLight))
@@ -88,7 +89,7 @@ struct ExampleSliderView: View {
         GridRow {
             Text(title)
                 .gridColumnAlignment(.leading)
-                .padding(.vertical, 8)
+                .padding(.vertical, 6)
                 
             Slider(value: $value, in: range)
         }
@@ -102,11 +103,14 @@ struct ExampleColorView: View {
         GridRow {
             Text(title)
                 .gridColumnAlignment(.leading)
-                .padding(.vertical, 8)
+                .padding(.vertical, 6)
             
-            ColorPicker(title, selection: $value)
-                .labelsHidden()
-                .frame(maxWidth: .infinity, alignment: .trailing)
+            Color.clear
+                .gridCellUnsizedAxes(.vertical)
+                .overlay(alignment: .leading) {
+                    ColorPicker(title, selection: $value)
+                        .labelsHidden()
+                }
         }
     }
 }

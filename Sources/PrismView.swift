@@ -9,63 +9,82 @@
 import SwiftUI
 
 struct PrismView<Content: View, Left: View, Right: View>: View {
-    // MARK: - Basic configuration
+    var configuration: PrismConfiguration
+    @ViewBuilder var content: Content
+    @ViewBuilder var left: Left
+    @ViewBuilder var right: Right
 
-    var tilt: CGFloat
-    var size: CGSize
-    var extrusion: CGFloat
+    public init(
+        configuration: PrismConfiguration,
+        @ViewBuilder content: () -> Content,
+        @ViewBuilder left: () -> Left,
+        @ViewBuilder right: () -> Right
+    ) {
+        self.configuration = configuration
+        self.content = content()
+        self.left = left()
+        self.right = right()
+    }
 
-    // MARK: - Optional properties
-
-    var levitation = CGFloat(0)
-    var shadowColor = Color.black
-    var shadowOpacity = CGFloat(0.25)
-
-    // MARK: - Views
-
-    @ViewBuilder let content: Content
-    @ViewBuilder let left: Left
-    @ViewBuilder let right: Right
+    public init(
+        tilt: CGFloat,
+        size: CGSize,
+        extrusion: CGFloat,
+        levitation: CGFloat = CGFloat(0),
+        shadowColor: SwiftUI.Color = Color.black,
+        shadowOpacity: CGFloat = CGFloat(0.25),
+        @ViewBuilder content: () -> Content,
+        @ViewBuilder left: () -> Left,
+        @ViewBuilder right: () -> Right
+    ) {
+        let configuration = PrismConfiguration(
+            tilt: tilt,
+            size: size,
+            extrusion: extrusion,
+            levitation: levitation,
+            shadowColor: shadowColor,
+            shadowOpacity: shadowOpacity
+        )
+        self.configuration = configuration
+        self.content = content()
+        self.left = left()
+        self.right = right()
+    }
 
     var body: some View {
-        let topRightOffset = tilt * size.width
-        let topAngle = atan2(topRightOffset, size.width)
+        let topRightOffset = configuration.tilt * configuration.size.width
+        let topAngle = atan2(topRightOffset, configuration.size.width)
 
-        let extrusionOffset: CGFloat = {
-            let extrusionOffset = extrusion
-            return extrusionOffset
-        }()
-
-        let levitationXOffset = sin(topAngle) * levitation
-        let levitationYOffset = cos(topAngle) * levitation
-        let extrusionXOffset = sin(topAngle) * extrusionOffset
-        let extrusionYOffset = cos(topAngle) * extrusionOffset
+        let levitationXOffset = sin(topAngle) * configuration.levitation
+        let levitationYOffset = cos(topAngle) * configuration.levitation
+        let extrusionXOffset = sin(topAngle) * configuration.extrusion
+        let extrusionYOffset = cos(topAngle) * configuration.extrusion
 
         content
-            .frame(width: size.width, height: size.height)
+            .frame(width: configuration.size.width, height: configuration.size.height)
             .background(
                 left
-                    .frame(width: size.width, height: extrusionYOffset)
-                    .tiltLeft(tilt: tilt)
+                    .frame(width: configuration.size.width, height: extrusionYOffset)
+                    .tiltLeft(tilt: configuration.tilt)
                     .offset(y: extrusionYOffset),
                 alignment: .bottom
             )
             .background(
                 Color.clear
-                    .frame(width: extrusionYOffset, height: size.height)
+                    .frame(width: extrusionYOffset, height: configuration.size.height)
                     .overlay(
                         right
-                            .frame(width: size.height, height: extrusionYOffset)
+                            .frame(width: configuration.size.height, height: extrusionYOffset)
                             .rotationEffect(.degrees(-90))
                     )
-                    .tiltRight(tilt: tilt)
+                    .tiltRight(tilt: configuration.tilt)
                     .offset(x: extrusionYOffset),
                 alignment: .trailing
             )
             .background(
-                shadowColor
+                configuration.shadowColor
                     .shadow(
-                        color: shadowColor,
+                        color: configuration.shadowColor,
                         radius: 16,
                         x: 0,
                         y: 0
@@ -74,9 +93,9 @@ struct PrismView<Content: View, Left: View, Right: View>: View {
                         x: levitationXOffset + extrusionXOffset + 10,
                         y: levitationYOffset + extrusionYOffset + 10
                     )
-                    .opacity(shadowOpacity)
-                    .opacity(CGFloat(1) - (CGFloat(levitation) / 400))
-                    .blur(radius: 10 + CGFloat(levitation) / 12)
+                    .opacity(configuration.shadowOpacity)
+                    .opacity(CGFloat(1) - (CGFloat(configuration.levitation) / 400))
+                    .blur(radius: 10 + CGFloat(configuration.levitation) / 12)
             )
             .offset(x: -levitationXOffset, y: -levitationYOffset) /// z height effect
             .offset(x: -extrusionXOffset, y: -extrusionYOffset) /// extrusion effect

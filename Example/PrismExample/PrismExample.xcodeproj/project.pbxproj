@@ -12,6 +12,9 @@
 		3C35DD1828E232E1006B7A47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C35DD1728E232E1006B7A47 /* Assets.xcassets */; };
 		3C35DD1B28E232E1006B7A47 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C35DD1A28E232E1006B7A47 /* Preview Assets.xcassets */; };
 		3C35DD2428E233B2006B7A47 /* Prism in Frameworks */ = {isa = PBXBuildFile; productRef = 3C35DD2328E233B2006B7A47 /* Prism */; };
+		3C35DD2728E25C79006B7A47 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD2628E25C79006B7A47 /* DetailView.swift */; };
+		3C35DD2928E25D53006B7A47 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD2828E25D53006B7A47 /* ColorView.swift */; };
+		3C35DD2C28E25DFD006B7A47 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD2B28E25DFD006B7A47 /* GalleryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +24,9 @@
 		3C35DD1728E232E1006B7A47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C35DD1A28E232E1006B7A47 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3C35DD2528E233BA006B7A47 /* Prism */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Prism; path = ../..; sourceTree = "<group>"; };
+		3C35DD2628E25C79006B7A47 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		3C35DD2828E25D53006B7A47 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		3C35DD2B28E25DFD006B7A47 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +63,9 @@
 			children = (
 				3C35DD1328E232E0006B7A47 /* PrismExampleApp.swift */,
 				3C35DD1528E232E0006B7A47 /* ContentView.swift */,
+				3C35DD2B28E25DFD006B7A47 /* GalleryView.swift */,
+				3C35DD2628E25C79006B7A47 /* DetailView.swift */,
+				3C35DD2A28E25D56006B7A47 /* Examples */,
 				3C35DD1728E232E1006B7A47 /* Assets.xcassets */,
 				3C35DD1928E232E1006B7A47 /* Preview Content */,
 			);
@@ -69,6 +78,14 @@
 				3C35DD1A28E232E1006B7A47 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3C35DD2A28E25D56006B7A47 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				3C35DD2828E25D53006B7A47 /* ColorView.swift */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,8 +164,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C35DD2928E25D53006B7A47 /* ColorView.swift in Sources */,
 				3C35DD1628E232E0006B7A47 /* ContentView.swift in Sources */,
+				3C35DD2728E25C79006B7A47 /* DetailView.swift in Sources */,
 				3C35DD1428E232E0006B7A47 /* PrismExampleApp.swift in Sources */,
+				3C35DD2C28E25DFD006B7A47 /* GalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
