@@ -7,3 +7,9 @@
 //
 
 import SwiftUI
+
+public extension UIColor {
+    var color: Color {
+        return Color(self)
+    }
+}

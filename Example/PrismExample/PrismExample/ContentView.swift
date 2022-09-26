@@ -14,6 +14,10 @@ struct ContentView: View {
     @State var size = CGSize(width: 100, height: 100)
     @State var extrusion = CGFloat(20)
     
+    @State var levitation = CGFloat(0)
+    @State var shadowColor = Color.black
+    @State var shadowOpacity = CGFloat(0.25)
+    
     var body: some View {
         VStack {
             Text("Prism")
@@ -27,6 +31,9 @@ struct ContentView: View {
                     tilt: tilt,
                     size: size,
                     extrusion: extrusion,
+                    levitation: levitation,
+                    shadowColor: shadowColor,
+                    shadowOpacity: shadowOpacity,
                     color: .blue
                 )
             }
@@ -35,7 +42,6 @@ struct ContentView: View {
             
             sliders
         }
-        .padding()
     }
     
     var sliders: some View {
@@ -56,7 +62,12 @@ struct ContentView: View {
             ExampleSliderView(title: "Width", value: width, range: 0 ... 200)
             ExampleSliderView(title: "Height", value: height, range: 0 ... 200)
             ExampleSliderView(title: "Extrusion", value: $extrusion, range: 0 ... 100)
+            ExampleSliderView(title: "Levitation", value: $levitation, range: 0 ... 200)
+            ExampleColorView(title: "Shadow Color", value: $shadowColor)
+            ExampleSliderView(title: "Shadow Opacity", value: $shadowOpacity, range: 0 ... 1)
         }
+        .padding(16)
+        .background(UIColor.secondarySystemBackground.color)
     }
 }
 
@@ -68,7 +79,25 @@ struct ExampleSliderView: View {
         GridRow {
             Text(title)
                 .gridColumnAlignment(.leading)
+                .padding(.vertical, 12)
+                
             Slider(value: $value, in: range)
+        }
+    }
+}
+
+struct ExampleColorView: View {
+    var title: String
+    @Binding var value: Color
+    var body: some View {
+        GridRow {
+            Text(title)
+                .gridColumnAlignment(.leading)
+                .padding(.vertical, 12)
+            
+            ColorPicker(title, selection: $value)
+                .labelsHidden()
+                .frame(maxWidth: .infinity, alignment: .trailing)
         }
     }
 }
