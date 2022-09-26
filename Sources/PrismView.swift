@@ -36,13 +36,14 @@ struct PrismView<Content: View, Left: View, Right: View>: View {
 
         content
             .frame(width: size.width, height: size.height)
-            .background(alignment: .bottom) {
+            .background(
                 left
                     .frame(width: size.width, height: extrusionYOffset)
                     .tiltLeft(tilt: tilt)
-                    .offset(y: extrusionYOffset)
-            }
-            .background(alignment: .trailing) {
+                    .offset(y: extrusionYOffset),
+                alignment: .bottom
+            )
+            .background(
                 Color.clear
                     .frame(width: extrusionYOffset, height: size.height)
                     .overlay(
@@ -51,8 +52,9 @@ struct PrismView<Content: View, Left: View, Right: View>: View {
                             .rotationEffect(.degrees(-90))
                     )
                     .tiltRight(tilt: tilt)
-                    .offset(x: extrusionYOffset)
-            }
+                    .offset(x: extrusionYOffset),
+                alignment: .trailing
+            )
             .background(
                 shadowColor
                     .shadow(
