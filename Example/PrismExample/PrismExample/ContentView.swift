@@ -19,7 +19,7 @@ struct ContentView: View {
     @State var shadowOpacity = CGFloat(0.25)
     
     var body: some View {
-        VStack {
+        VStack(spacing: 30) {
             Text("Prism")
                 .tracking(20)
                 .offset(x: 10)
@@ -38,10 +38,19 @@ struct ContentView: View {
                 )
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .border(.blue)
+            .background(UIColor.systemBackground.color)
+            .cornerRadius(16)
+            .shadow(
+                color: .black.opacity(0.25),
+                radius: 10,
+                x: 0,
+                y: 2
+            )
+            .padding(.horizontal, 20)
             
             sliders
         }
+        .padding(.top, 20)
     }
     
     var sliders: some View {
@@ -79,7 +88,7 @@ struct ExampleSliderView: View {
         GridRow {
             Text(title)
                 .gridColumnAlignment(.leading)
-                .padding(.vertical, 12)
+                .padding(.vertical, 8)
                 
             Slider(value: $value, in: range)
         }
@@ -93,7 +102,7 @@ struct ExampleColorView: View {
         GridRow {
             Text(title)
                 .gridColumnAlignment(.leading)
-                .padding(.vertical, 12)
+                .padding(.vertical, 8)
             
             ColorPicker(title, selection: $value)
                 .labelsHidden()
