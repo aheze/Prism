@@ -9,7 +9,7 @@
 import Prism
 import SwiftUI
 
-enum DetailKind: String {
+enum TemplateKind: String {
     case color = "Color"
     case gradient = "Gradient"
     case image = "Image"
@@ -29,6 +29,17 @@ struct GalleryView: View {
                 ColorGalleryView(model: model)
 
                 GradientGalleryView(model: model)
+            } header: {
+                Text("Examples")
+                    .foregroundColor(UIColor.secondaryLabel.color)
+                    .textCase(.uppercase)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+
+            Section {
+                ColorGalleryView(model: model)
+
+                GradientGalleryView(model: model)
 
                 ImageGalleryView(model: model)
 
@@ -38,10 +49,11 @@ struct GalleryView: View {
                     .foregroundColor(UIColor.secondaryLabel.color)
                     .textCase(.uppercase)
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.top, 16)
             }
         }
         .padding(.horizontal, 20)
-        .navigationDestination(for: DetailKind.self) { kind in
+        .navigationDestination(for: TemplateKind.self) { kind in
             switch kind {
             case .color:
                 ColorDetailView()

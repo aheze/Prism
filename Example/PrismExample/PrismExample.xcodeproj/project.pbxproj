@@ -75,7 +75,8 @@
 				3C35DD2D28E261DE006B7A47 /* ViewModel.swift */,
 				3C35DD1528E232E0006B7A47 /* ContentView.swift */,
 				3C35DD2F28E27CE0006B7A47 /* Gallery */,
-				3C35DD2A28E25D56006B7A47 /* Examples */,
+				3C35DD3828E283FA006B7A47 /* Examples */,
+				3C35DD2A28E25D56006B7A47 /* Templates */,
 				3C35DD1728E232E1006B7A47 /* Assets.xcassets */,
 				3C35DD1928E232E1006B7A47 /* Preview Content */,
 			);
@@ -90,7 +91,7 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3C35DD2A28E25D56006B7A47 /* Examples */ = {
+		3C35DD2A28E25D56006B7A47 /* Templates */ = {
 			isa = PBXGroup;
 			children = (
 				3C35DD2828E25D53006B7A47 /* Color.swift */,
@@ -99,7 +100,7 @@
 				3C35DD3628E28269006B7A47 /* Glass.swift */,
 				3C35DD2628E25C79006B7A47 /* DetailView.swift */,
 			);
-			path = Examples;
+			path = Templates;
 			sourceTree = "<group>";
 		};
 		3C35DD2F28E27CE0006B7A47 /* Gallery */ = {
@@ -109,6 +110,13 @@
 				3C35DD3028E27CEE006B7A47 /* GalleryCardView.swift */,
 			);
 			path = Gallery;
+			sourceTree = "<group>";
+		};
+		3C35DD3828E283FA006B7A47 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
