@@ -13,8 +13,11 @@ struct DetailView<Content: View, Controls: View>: View {
     @ViewBuilder var content: (PrismConfiguration) -> Content
     @ViewBuilder var controls: Controls
     
-    @State var configuration = PrismConfiguration()
     @Environment(\.verticalSizeClass) var verticalSizeClass
+    @State var configuration = PrismConfiguration()
+    @State var keepCentered = false
+    
+    
     
     var body: some View {
         let layout = verticalSizeClass == .regular
@@ -25,6 +28,7 @@ struct DetailView<Content: View, Controls: View>: View {
             PrismCanvas(tilt: configuration.tilt) {
                 content(configuration)
             }
+            .offset(y: keepCentered ? configuration.levitation : 0)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(UIColor.systemBackground.color)
             .cornerRadius(16)
@@ -45,13 +49,21 @@ struct DetailView<Content: View, Controls: View>: View {
                     sliders
                     
                     GridRow {
-                        Button("Randomize") {
-                            randomize()
-                        }
-                        .buttonStyle(.borderedProminent)
+                        Text("Center")
                         
-                        Color.clear
-                            .gridCellUnsizedAxes(.horizontal)
+                        HStack {
+                            Toggle("", isOn: $keepCentered)
+                                .labelsHidden()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            
+                            Button("Randomize") {
+                                randomize()
+                            }
+                            .buttonStyle(.borderedProminent)
+                        }
+//
+//                        Color.clear
+//                            .gridCellUnsizedAxes(.horizontal)
                     }
                 }
             }
