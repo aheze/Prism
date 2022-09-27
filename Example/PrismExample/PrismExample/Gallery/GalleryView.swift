@@ -13,6 +13,7 @@ enum ExampleKind: String {
     case basic = "Basic"
     case slime = "Slime"
     case transform = "Transform"
+    case logo = "Logo"
 
     case color = "Color"
     case gradient = "Gradient"
@@ -35,6 +36,8 @@ struct GalleryView: View {
                 SlimeGalleryView(model: model)
 
                 TransformGalleryView(model: model)
+                
+                LogoGalleryView(model: model)
             } header: {
                 Text("Showcase")
                     .foregroundColor(UIColor.secondaryLabel.color)
@@ -67,6 +70,8 @@ struct GalleryView: View {
                 SlimeDetailView()
             case .transform:
                 TransformDetailView()
+            case .logo:
+                LogoDetailView()
             case .color:
                 ColorDetailView()
             case .gradient:

@@ -88,4 +88,23 @@ extension UIColor {
             alpha: 1.0
         )
     }
+    
+    var hsba: (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat) {
+        var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+        return (h: h, s: s, b: b, a: a)
+    }
+
+    /// Get a gradient color.
+    func offset(by offset: CGFloat) -> UIColor {
+        let (h, s, b, a) = hsba
+        var newHue = h - offset
+
+        /// Wrap back to positive values.
+        while newHue <= 0 {
+            newHue += 1
+        }
+        let normalizedHue = newHue.truncatingRemainder(dividingBy: 1)
+        return UIColor(hue: normalizedHue, saturation: s, brightness: b, alpha: a)
+    }
 }
