@@ -4,8 +4,10 @@ A lightweight 3D renderer for SwiftUI.
 
 - Works with any SwiftUI `View`.
 - Fully interactive and animatable.
-- Powered by perspective transforms.
+- Compatible with all SwiftUI modifiers.
+- Will not affect sizing (unlike GeometryReader...)
 - 100% SwiftUI. No SceneKit or other weird stuff.
+- Powered by perspective transforms, so it's fast.
 - Supports sizing, extrusion, levitation, and more.
 
 ![Logo cube](Assets/Logo.png) | ![Square that animates into a cube, with border](Assets/Transform.gif) | ![3 green cubes that bounce on click](Assets/Bounce.gif) | ![Thin, levitating blue prism](Assets/Gradient.png) | ![Prism with an image on each side](Assets/Image.png)
@@ -21,7 +23,7 @@ https://github.com/aheze/Prism
 
 ## Usage
 
-Prism is designed to be easy to use. First, define a `PrismConfiguration` for customization. Then just add a `PrismCanvas`, which can contain as many `PrismView`s as you'd like.
+Prism is designed to be easy to use. First, define a `PrismConfiguration` for customization. Then add a `PrismCanvas`, which can contain as many `PrismView`s as you'd like.
 
 ```swift
 struct ContentView: View {
@@ -52,7 +54,7 @@ struct ContentView: View {
 
 ## Example
 
-Includes various samples of the library. [Download](https://github.com/aheze/Prism/archive/refs/heads/main.zip) it here!
+The example app includes a bunch of samples to play with. [Download](https://github.com/aheze/Prism/archive/refs/heads/main.zip) it here!
 
 <img src="Assets/Example.png" width="300" alt="Screenshot of example app">
 
