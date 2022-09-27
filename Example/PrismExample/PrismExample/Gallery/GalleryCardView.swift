@@ -22,7 +22,7 @@ struct GalleryCardView<Content: View>: View {
                 PrismCanvas(configuration: model.configuration) {
                     content
                 }
-                .frame(minHeight: 160)
+                .frame(minHeight: 200)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 16)
 

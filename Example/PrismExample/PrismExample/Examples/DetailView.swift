@@ -14,9 +14,14 @@ struct DetailView<Content: View, Controls: View>: View {
     @ViewBuilder var controls: Controls
     
     @State var configuration = PrismConfiguration()
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     
     var body: some View {
-        VStack(spacing: 30) {
+        let layout = verticalSizeClass == .regular
+            ? AnyLayout(VStackLayout(spacing: 30))
+            : AnyLayout(HStackLayout(spacing: 20))
+        
+        layout {
             PrismCanvas(tilt: configuration.tilt) {
                 content(configuration)
             }
@@ -42,7 +47,7 @@ struct DetailView<Content: View, Controls: View>: View {
             .padding(.horizontal, 20)
             .background(UIColor.secondarySystemBackground.color)
         }
-        .padding(.top, 20)
+        .padding(.vertical, 12)
     }
     
     var sliders: some View {
