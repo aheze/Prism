@@ -18,6 +18,7 @@
 		3C35DD2E28E261DE006B7A47 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD2D28E261DE006B7A47 /* ViewModel.swift */; };
 		3C35DD3128E27CEE006B7A47 /* GalleryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD3028E27CEE006B7A47 /* GalleryCardView.swift */; };
 		3C35DD3328E27E19006B7A47 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD3228E27E19006B7A47 /* Gradient.swift */; };
+		3C35DD3528E27FD5006B7A47 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD3428E27FD5006B7A47 /* Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		3C35DD2D28E261DE006B7A47 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		3C35DD3028E27CEE006B7A47 /* GalleryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCardView.swift; sourceTree = "<group>"; };
 		3C35DD3228E27E19006B7A47 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
+		3C35DD3428E27FD5006B7A47 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				3C35DD2828E25D53006B7A47 /* Color.swift */,
 				3C35DD3228E27E19006B7A47 /* Gradient.swift */,
+				3C35DD3428E27FD5006B7A47 /* Image.swift */,
 				3C35DD2628E25C79006B7A47 /* DetailView.swift */,
 			);
 			path = Examples;
@@ -182,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C35DD2928E25D53006B7A47 /* Color.swift in Sources */,
+				3C35DD3528E27FD5006B7A47 /* Image.swift in Sources */,
 				3C35DD1628E232E0006B7A47 /* ContentView.swift in Sources */,
 				3C35DD2728E25C79006B7A47 /* DetailView.swift in Sources */,
 				3C35DD1428E232E0006B7A47 /* PrismExampleApp.swift in Sources */,

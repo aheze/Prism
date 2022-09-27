@@ -12,6 +12,7 @@ import SwiftUI
 enum DetailKind: String {
     case color = "Color"
     case gradient = "Gradient"
+    case image = "Image"
 }
 
 struct GalleryView: View {
@@ -26,6 +27,8 @@ struct GalleryView: View {
             ColorGalleryView(model: model)
 
             GradientGalleryView(model: model)
+
+            ImageGalleryView(model: model)
         }
         .padding(.horizontal, 20)
         .navigationDestination(for: DetailKind.self) { kind in
@@ -34,6 +37,8 @@ struct GalleryView: View {
                 ColorDetailView()
             case .gradient:
                 GradientDetailView()
+            case .image:
+                ImageDetailView()
             }
         }
     }

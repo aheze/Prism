@@ -1,5 +1,5 @@
 //
-//  PrismGradientView.swift
+//  PrismImageView.swift
 //  Prism
 //
 //  Created by A. Zheng (github.com/aheze) on 9/26/22.
@@ -8,32 +8,37 @@
 
 import SwiftUI
 
-public struct PrismGradientView: View {
+public struct PrismImageView: View {
     var configuration: PrismConfiguration
-    var gradient: Gradient
+    var image: Image
 
     public init(
         configuration: PrismConfiguration,
-        gradient: Gradient
+        image: Image
     ) {
         self.configuration = configuration
-        self.gradient = gradient
+        self.image = image
     }
 
     public var body: some View {
+        let image = Color.clear.overlay(
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+        )
+        .clipped()
+
         PrismView(configuration: configuration) {
-            LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
+            image
         } left: {
-            LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
-                .brightness(-0.1)
+            image.brightness(-0.1)
         } right: {
-            LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
-                .brightness(-0.3)
+            image.brightness(-0.3)
         }
     }
 }
 
-public extension PrismGradientView {
+public extension PrismImageView {
     init(
         tilt: CGFloat,
         size: CGSize,
@@ -41,7 +46,7 @@ public extension PrismGradientView {
         levitation: CGFloat = CGFloat(0),
         shadowColor: SwiftUI.Color = Color.black,
         shadowOpacity: CGFloat = CGFloat(0.25),
-        gradient: Gradient
+        image: Image
     ) {
         let configuration = PrismConfiguration(
             tilt: tilt,
@@ -52,6 +57,6 @@ public extension PrismGradientView {
             shadowOpacity: shadowOpacity
         )
         self.configuration = configuration
-        self.gradient = gradient
+        self.image = image
     }
 }

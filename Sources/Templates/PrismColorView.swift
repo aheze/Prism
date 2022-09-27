@@ -9,8 +9,6 @@
 import SwiftUI
 
 public struct PrismColorView: View {
-    // MARK: - Basic configuration
-
     var configuration: PrismConfiguration
     var color: Color
 
