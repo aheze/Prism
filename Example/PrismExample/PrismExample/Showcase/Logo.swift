@@ -47,75 +47,71 @@ struct LogoDetailView: View {
 
 struct LogoPrismView: View {
     @Binding var configuration: PrismConfiguration
+    var fromRim = UIColor.white.withAlphaComponent(0.5).color
+    var toRim = UIColor.white.color
+    var fromInner = UIColor.systemBlue.color
+    var toInner = UIColor.systemPink.color
 
     var body: some View {
         PrismView(configuration: configuration) {
-            LinearGradient(
-                colors: [
-                    UIColor.systemBlue.color,
-                    UIColor.systemBlue.offset(by: 0.02).color
-                ],
-                startPoint: .bottomTrailing,
-                endPoint: .topLeading
-            )
-            .opacity(0.75)
-            .overlay {
-                sticker(point: .bottomTrailing)
-            }
+            side(from: .topLeading, to: .bottomTrailing, fromColor: Color.yellow.opacity(0.75), toColor: Color.white)
         } left: {
-            LinearGradient(
-                colors: [
-                    UIColor.systemBlue.color,
-                    UIColor.systemBlue.offset(by: 0.02).color
-                ],
-                startPoint: .trailing,
-                endPoint: .leading
-            )
-            .opacity(0.7)
-            .overlay {
-                sticker(point: .topTrailing)
-            }
+            side(from: .bottomTrailing, to: .topTrailing, fromColor: Color.cyan.opacity(0.75), toColor: Color.white)
         } right: {
-            LinearGradient(
-                colors: [
-                    UIColor.systemBlue.color,
-                    UIColor.systemBlue.offset(by: 0.02).color
-                ],
-                startPoint: .leading,
-                endPoint: .trailing
-            )
-            .brightness(-0.1)
-            .opacity(0.7)
-            .overlay {
-                sticker(point: .topLeading)
-            }
+            side(from: .bottomTrailing, to: .topLeading, fromColor: Color.green.opacity(0.75), toColor: Color.white)
         }
     }
 
-    func sticker(point: UnitPoint) -> some View {
+    func side(from: UnitPoint, to: UnitPoint, fromColor: Color, toColor: Color) -> some View {
         GeometryReader { geometry in
             Rectangle()
                 .foregroundStyle(
-                    .ellipticalGradient(
+                    .linearGradient(
                         stops: [
-                            .init(color: UIColor.systemBlue.offset(by: -0.01).color, location: -0.2),
-                            .init(color: UIColor.systemBlue.offset(by: 0.01).color, location: 1)
+                            .init(color: fromRim, location: 0),
+                            .init(color: toRim, location: 1)
                         ],
-                        center: point
+                        startPoint: from,
+                        endPoint: to
                     )
                     .shadow(
                         .inner(
                             color: .black.opacity(0.1),
-                            radius: geometry.size.width / 10,
+                            radius: geometry.size.width / 30,
                             x: 0,
                             y: 0
                         )
                     )
                 )
-                .frame(
-                    width: geometry.size.width * 2 / 3,
-                    height: geometry.size.height * 2 / 3
-                )
+                .overlay {
+                    Rectangle()
+                        .stroke(Color.black.opacity(0.5), lineWidth: geometry.size.width / 120)
+                }
+                .opacity(0.7)
+                .overlay {
+                    Rectangle()
+                        .foregroundStyle(
+                            .ellipticalGradient(
+                                stops: [
+                                    .init(color: toColor, location: -0.2),
+                                    .init(color: fromColor, location: 1)
+                                ],
+                                center: to
+                            )
+                            .shadow(
+                                .inner(
+                                    color: .black.opacity(0.25),
+                                    radius: geometry.size.width / 30,
+                                    x: 0,
+                                    y: 0
+                                )
+                            )
+                        )
+                        .frame(
+                            width: geometry.size.width * 2 / 3,
+                            height: geometry.size.height * 2 / 3
+                        )
+                }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
