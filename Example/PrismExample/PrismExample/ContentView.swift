@@ -49,7 +49,7 @@ struct ExampleSliderView: View {
     var body: some View {
         GridRow {
             Text(title)
-                .gridColumnAlignment(.leading)
+                .gridColumnAlignment(.leading)#imageLiteral(resourceName: "simulator_screenshot_B59F966E-3178-4089-A417-356509865257.png")
                 .padding(.vertical, 6)
 
             Slider(value: $value, in: range)
