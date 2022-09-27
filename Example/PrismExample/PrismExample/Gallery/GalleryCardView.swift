@@ -1,5 +1,5 @@
 //
-//  GalleryView.swift
+//  GalleryCardView.swift
 //  PrismExample
 //
 //  Created by A. Zheng (github.com/aheze) on 9/26/22.
@@ -8,53 +8,6 @@
 
 import Prism
 import SwiftUI
-
-enum DetailKind: String {
-    case color = "Color"
-}
-
-struct GalleryView: View {
-    @ObservedObject var model: ViewModel
-
-    let columns = [
-        GridItem(.adaptive(minimum: 180))
-    ]
-
-    var body: some View {
-        LazyVGrid(columns: columns, spacing: 8) {
-            GalleryColorView(model: model)
-
-            GalleryColorView(model: model)
-
-            GalleryColorView(model: model)
-        }
-        .padding(.horizontal, 20)
-        .navigationDestination(for: DetailKind.self) { kind in
-            switch kind {
-            case .color:
-                ColorView()
-            }
-        }
-    }
-}
-
-struct GalleryColorView: View {
-    @ObservedObject var model: ViewModel
-
-    var body: some View {
-        GalleryCardView(model: model, kind: .color) {
-            PrismColorView(
-                tilt: model.configuration.tilt,
-                size: model.configuration.size,
-                extrusion: model.configuration.extrusion,
-                levitation: model.configuration.levitation,
-                shadowColor: model.configuration.shadowColor,
-                shadowOpacity: model.configuration.shadowOpacity,
-                color: .blue
-            )
-        }
-    }
-}
 
 struct GalleryCardView<Content: View>: View {
     @ObservedObject var model: ViewModel

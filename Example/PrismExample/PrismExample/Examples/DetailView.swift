@@ -17,13 +17,6 @@ struct DetailView<Content: View, Controls: View>: View {
     
     var body: some View {
         VStack(spacing: 30) {
-            Text("Prism")
-                .tracking(20)
-                
-                .offset(x: 10)
-                .textCase(.uppercase)
-                .font(.system(.largeTitle).weight(.ultraLight))
-            
             PrismCanvas(tilt: configuration.tilt) {
                 content(configuration)
             }
@@ -38,11 +31,16 @@ struct DetailView<Content: View, Controls: View>: View {
             )
             .padding(.horizontal, 20)
             
-            VStack(spacing: 0) {
-                controls
-                Divider()
-                sliders
+            VStack {
+                Grid {
+                    controls
+                    Divider()
+                    sliders
+                }
             }
+            .padding(.vertical, 16)
+            .padding(.horizontal, 20)
+            .background(UIColor.secondarySystemBackground.color)
         }
         .padding(.top, 20)
     }
@@ -60,7 +58,7 @@ struct DetailView<Content: View, Controls: View>: View {
             configuration.size.height = newValue
         }
 
-        return Grid {
+        return Group {
             ExampleSliderView(title: "Tilt", value: $configuration.tilt, range: 0 ... 1)
             ExampleSliderView(title: "Width", value: width, range: 0 ... 200)
             ExampleSliderView(title: "Height", value: height, range: 0 ... 200)
@@ -69,7 +67,5 @@ struct DetailView<Content: View, Controls: View>: View {
             ExampleColorView(title: "Shadow Color", value: $configuration.shadowColor)
             ExampleSliderView(title: "Shadow Opacity", value: $configuration.shadowOpacity, range: 0 ... 1)
         }
-        .padding(16)
-        .background(UIColor.secondarySystemBackground.color)
     }
 }

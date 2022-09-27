@@ -1,5 +1,5 @@
 //
-//  PrismTemplates.swift
+//  PrismGradientView.swift
 //  Prism
 //
 //  Created by A. Zheng (github.com/aheze) on 9/26/22.
@@ -8,32 +8,34 @@
 
 import SwiftUI
 
-public struct PrismColorView: View {
+public struct PrismGradientView: View {
     // MARK: - Basic configuration
 
     var configuration: PrismConfiguration
-    var color: Color
+    var gradient: Gradient
 
     public init(
         configuration: PrismConfiguration,
-        color: Color
+        gradient: Gradient
     ) {
         self.configuration = configuration
-        self.color = color
+        self.gradient = gradient
     }
 
     public var body: some View {
         PrismView(configuration: configuration) {
-            color
+            LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
         } left: {
-            color.brightness(-0.1)
+            LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
+                .brightness(-0.1)
         } right: {
-            color.brightness(-0.3)
+            LinearGradient(gradient: gradient, startPoint: .top, endPoint: .bottom)
+                .brightness(-0.3)
         }
     }
 }
 
-public extension PrismColorView {
+public extension PrismGradientView {
     init(
         tilt: CGFloat,
         size: CGSize,
@@ -41,7 +43,7 @@ public extension PrismColorView {
         levitation: CGFloat = CGFloat(0),
         shadowColor: SwiftUI.Color = Color.black,
         shadowOpacity: CGFloat = CGFloat(0.25),
-        color: Color
+        gradient: Gradient
     ) {
         let configuration = PrismConfiguration(
             tilt: tilt,
@@ -52,6 +54,6 @@ public extension PrismColorView {
             shadowOpacity: shadowOpacity
         )
         self.configuration = configuration
-        self.color = color
+        self.gradient = gradient
     }
 }
