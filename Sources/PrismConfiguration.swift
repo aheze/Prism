@@ -9,7 +9,7 @@
 import SwiftUI
 
 public struct PrismConfiguration {
-    public var tilt = CGFloat(0)
+    public var tilt = CGFloat(0.25)
     public var size = CGSize(width: 100, height: 100)
     public var extrusion = CGFloat(20)
 
@@ -18,7 +18,7 @@ public struct PrismConfiguration {
     public var shadowOpacity = CGFloat(0.25)
 
     public init(
-        tilt: CGFloat = CGFloat(0),
+        tilt: CGFloat = CGFloat(0.25),
         size: CGSize = CGSize(width: 100, height: 100),
         extrusion: CGFloat = CGFloat(20),
         levitation: CGFloat = CGFloat(0),

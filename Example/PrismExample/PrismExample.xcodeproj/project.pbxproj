@@ -15,6 +15,7 @@
 		3C35DD2728E25C79006B7A47 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD2628E25C79006B7A47 /* DetailView.swift */; };
 		3C35DD2928E25D53006B7A47 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD2828E25D53006B7A47 /* ColorView.swift */; };
 		3C35DD2C28E25DFD006B7A47 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD2B28E25DFD006B7A47 /* GalleryView.swift */; };
+		3C35DD2E28E261DE006B7A47 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD2D28E261DE006B7A47 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		3C35DD2628E25C79006B7A47 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		3C35DD2828E25D53006B7A47 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		3C35DD2B28E25DFD006B7A47 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
+		3C35DD2D28E261DE006B7A47 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +64,10 @@
 			isa = PBXGroup;
 			children = (
 				3C35DD1328E232E0006B7A47 /* PrismExampleApp.swift */,
+				3C35DD2D28E261DE006B7A47 /* ViewModel.swift */,
 				3C35DD1528E232E0006B7A47 /* ContentView.swift */,
 				3C35DD2B28E25DFD006B7A47 /* GalleryView.swift */,
-				3C35DD2628E25C79006B7A47 /* DetailView.swift */,
-				3C35DD2A28E25D56006B7A47 /* Examples */,
+				3C35DD2A28E25D56006B7A47 /* Detail Views */,
 				3C35DD1728E232E1006B7A47 /* Assets.xcassets */,
 				3C35DD1928E232E1006B7A47 /* Preview Content */,
 			);
@@ -80,12 +82,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		3C35DD2A28E25D56006B7A47 /* Examples */ = {
+		3C35DD2A28E25D56006B7A47 /* Detail Views */ = {
 			isa = PBXGroup;
 			children = (
+				3C35DD2628E25C79006B7A47 /* DetailView.swift */,
 				3C35DD2828E25D53006B7A47 /* ColorView.swift */,
 			);
-			path = Examples;
+			path = "Detail Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +171,7 @@
 				3C35DD1628E232E0006B7A47 /* ContentView.swift in Sources */,
 				3C35DD2728E25C79006B7A47 /* DetailView.swift in Sources */,
 				3C35DD1428E232E0006B7A47 /* PrismExampleApp.swift in Sources */,
+				3C35DD2E28E261DE006B7A47 /* ViewModel.swift in Sources */,
 				3C35DD2C28E25DFD006B7A47 /* GalleryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

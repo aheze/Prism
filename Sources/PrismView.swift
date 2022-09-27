@@ -26,31 +26,6 @@ struct PrismView<Content: View, Left: View, Right: View>: View {
         self.right = right()
     }
 
-    public init(
-        tilt: CGFloat,
-        size: CGSize,
-        extrusion: CGFloat,
-        levitation: CGFloat = CGFloat(0),
-        shadowColor: SwiftUI.Color = Color.black,
-        shadowOpacity: CGFloat = CGFloat(0.25),
-        @ViewBuilder content: () -> Content,
-        @ViewBuilder left: () -> Left,
-        @ViewBuilder right: () -> Right
-    ) {
-        let configuration = PrismConfiguration(
-            tilt: tilt,
-            size: size,
-            extrusion: extrusion,
-            levitation: levitation,
-            shadowColor: shadowColor,
-            shadowOpacity: shadowOpacity
-        )
-        self.configuration = configuration
-        self.content = content()
-        self.left = left()
-        self.right = right()
-    }
-
     var body: some View {
         let topRightOffset = configuration.tilt * configuration.size.width
         let topAngle = atan2(topRightOffset, configuration.size.width)
@@ -99,5 +74,32 @@ struct PrismView<Content: View, Left: View, Right: View>: View {
             )
             .offset(x: -levitationXOffset, y: -levitationYOffset) /// z height effect
             .offset(x: -extrusionXOffset, y: -extrusionYOffset) /// extrusion effect
+    }
+}
+
+extension PrismView {
+    public init(
+        tilt: CGFloat,
+        size: CGSize,
+        extrusion: CGFloat,
+        levitation: CGFloat = CGFloat(0),
+        shadowColor: SwiftUI.Color = Color.black,
+        shadowOpacity: CGFloat = CGFloat(0.25),
+        @ViewBuilder content: () -> Content,
+        @ViewBuilder left: () -> Left,
+        @ViewBuilder right: () -> Right
+    ) {
+        let configuration = PrismConfiguration(
+            tilt: tilt,
+            size: size,
+            extrusion: extrusion,
+            levitation: levitation,
+            shadowColor: shadowColor,
+            shadowOpacity: shadowOpacity
+        )
+        self.configuration = configuration
+        self.content = content()
+        self.left = left()
+        self.right = right()
     }
 }

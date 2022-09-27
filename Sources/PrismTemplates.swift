@@ -11,21 +11,30 @@ import SwiftUI
 public struct PrismColorView: View {
     // MARK: - Basic configuration
 
-    var tilt: CGFloat
-    var size: CGSize
-    var extrusion: CGFloat
-
-    // MARK: - Optional properties
-
-    var levitation = CGFloat(0)
-    var shadowColor = Color.black
-    var shadowOpacity = CGFloat(0.25)
-
-    // MARK: - Views
-
+    var configuration: PrismConfiguration
     var color: Color
 
     public init(
+        configuration: PrismConfiguration,
+        color: Color
+    ) {
+        self.configuration = configuration
+        self.color = color
+    }
+
+    public var body: some View {
+        PrismView(configuration: configuration) {
+            color
+        } left: {
+            color.brightness(-0.1)
+        } right: {
+            color.brightness(-0.3)
+        }
+    }
+}
+
+public extension PrismColorView {
+    init(
         tilt: CGFloat,
         size: CGSize,
         extrusion: CGFloat,
@@ -34,29 +43,15 @@ public struct PrismColorView: View {
         shadowOpacity: CGFloat = CGFloat(0.25),
         color: Color
     ) {
-        self.tilt = tilt
-        self.size = size
-        self.extrusion = extrusion
-        self.levitation = levitation
-        self.shadowColor = shadowColor
-        self.shadowOpacity = shadowOpacity
-        self.color = color
-    }
-
-    public var body: some View {
-        PrismView(
+        let configuration = PrismConfiguration(
             tilt: tilt,
             size: size,
             extrusion: extrusion,
             levitation: levitation,
             shadowColor: shadowColor,
             shadowOpacity: shadowOpacity
-        ) {
-            color
-        } left: {
-            color.brightness(-0.1)
-        } right: {
-            color.brightness(-0.3)
-        }
+        )
+        self.configuration = configuration
+        self.color = color
     }
 }
