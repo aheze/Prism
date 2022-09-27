@@ -10,6 +10,7 @@ import Prism
 import SwiftUI
 
 enum ExampleKind: String {
+    case basic = "Basic"
     case slime = "Slime"
 
     case color = "Color"
@@ -28,8 +29,9 @@ struct GalleryView: View {
     var body: some View {
         LazyVGrid(columns: columns, spacing: 8) {
             Section {
-                SlimeGalleryView(model: model)
+                BasicGalleryView(model: model)
 
+                SlimeGalleryView(model: model)
             } header: {
                 Text("Showcase")
                     .foregroundColor(UIColor.secondaryLabel.color)
@@ -56,6 +58,8 @@ struct GalleryView: View {
         .padding(.horizontal, 20)
         .navigationDestination(for: ExampleKind.self) { kind in
             switch kind {
+            case .basic:
+                BasicDetailView()
             case .slime:
                 SlimeDetailView()
 

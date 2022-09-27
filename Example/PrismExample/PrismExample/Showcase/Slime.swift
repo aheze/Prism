@@ -9,11 +9,6 @@
 import Prism
 import SwiftUI
 
-struct DisplayedPrismConfiguration: Identifiable {
-    let id = UUID()
-    var configuration: PrismConfiguration
-}
-
 struct SlimeGalleryView: View {
     @ObservedObject var model: ViewModel
 
@@ -42,7 +37,7 @@ struct SlimeGalleryView: View {
 struct SlimeDetailView: View {
     static let defaultLength = CGFloat(100)
     static let defaultExtrusion = CGFloat(60)
-    
+
     @State var displayedConfigurations: [DisplayedPrismConfiguration] = [
         .init(
             configuration: .init(
@@ -104,47 +99,51 @@ struct SlimePrismView: View {
         }
         .buttonStyle(PressedButtonStyle(isPressed: $isPressed))
         .onChange(of: isPressed) { newValue in
-            if newValue {
+            animate(isPressed: newValue)
+        }
+    }
+
+    func animate(isPressed: Bool) {
+        if isPressed {
+            withAnimation(
+                .spring(response: 0.21, dampingFraction: 0.5, blendDuration: 1)
+            ) {
+                configuration.extrusion *= 0.2
+            }
+        } else {
+            withAnimation(
+                .spring(response: 0.4, dampingFraction: 0.7, blendDuration: 1)
+            ) {
+                configuration.extrusion = SlimeDetailView.defaultLength * 3 / 2
+                configuration.size = .init(
+                    width: SlimeDetailView.defaultLength * 2 / 5,
+                    height: SlimeDetailView.defaultLength * 2 / 5
+                )
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 withAnimation(
-                    .spring(response: 0.21, dampingFraction: 0.5, blendDuration: 1)
+                    .spring(response: 0.3, dampingFraction: 0.7, blendDuration: 1)
                 ) {
-                    configuration.extrusion *= 0.2
+                    configuration.levitation = SlimeDetailView.defaultLength * 3 / 2
+                    configuration.extrusion = 10
                 }
-            } else {
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.293) {
                 withAnimation(
-                    .spring(response: 0.4, dampingFraction: 0.7, blendDuration: 1)
+                    .spring(response: 0.7, dampingFraction: 0.7, blendDuration: 1)
                 ) {
-                    configuration.extrusion = SlimeDetailView.defaultLength * 3 / 2
-                    configuration.size = .init(
-                        width: SlimeDetailView.defaultLength * 2 / 5,
-                        height: SlimeDetailView.defaultLength * 2 / 5
-                    )
+                    configuration.size = .init(width: SlimeDetailView.defaultLength, height: SlimeDetailView.defaultLength)
+                    configuration.levitation = 0
                 }
+            }
 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    withAnimation(
-                        .spring(response: 0.3, dampingFraction: 0.7, blendDuration: 1)
-                    ) {
-                        configuration.levitation = SlimeDetailView.defaultLength * 3 / 2
-                        configuration.extrusion = 10
-                    }
-                }
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.293) {
-                    withAnimation(
-                        .spring(response: 0.7, dampingFraction: 0.7, blendDuration: 1)
-                    ) {
-                        configuration.size = .init(width: SlimeDetailView.defaultLength, height: SlimeDetailView.defaultLength)
-                        configuration.levitation = 0
-                    }
-                }
-
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.66) {
-                    withAnimation(
-                        .spring(response: 0.6, dampingFraction: 0.7, blendDuration: 1)
-                    ) {
-                        configuration.extrusion = SlimeDetailView.defaultExtrusion
-                    }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.66) {
+                withAnimation(
+                    .spring(response: 0.6, dampingFraction: 0.7, blendDuration: 1)
+                ) {
+                    configuration.extrusion = SlimeDetailView.defaultExtrusion
                 }
             }
         }
