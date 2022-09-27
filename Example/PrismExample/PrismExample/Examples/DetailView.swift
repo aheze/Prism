@@ -35,10 +35,12 @@ struct DetailView<Content: View, Controls: View>: View {
                 y: 2
             )
             .padding(.horizontal, 20)
+            .padding(.top, 12)
             
             VStack {
                 Grid {
                     controls
+                        .fontWeight(.semibold)
                     Divider()
                     sliders
                 }
@@ -47,7 +49,6 @@ struct DetailView<Content: View, Controls: View>: View {
             .padding(.horizontal, 20)
             .background(UIColor.secondarySystemBackground.color)
         }
-        .padding(.vertical, 12)
     }
     
     var sliders: some View {

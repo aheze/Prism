@@ -13,6 +13,7 @@ enum DetailKind: String {
     case color = "Color"
     case gradient = "Gradient"
     case image = "Image"
+    case glass = "Glass"
 }
 
 struct GalleryView: View {
@@ -29,6 +30,8 @@ struct GalleryView: View {
             GradientGalleryView(model: model)
 
             ImageGalleryView(model: model)
+
+            GlassGalleryView(model: model)
         }
         .padding(.horizontal, 20)
         .navigationDestination(for: DetailKind.self) { kind in
@@ -39,6 +42,8 @@ struct GalleryView: View {
                 GradientDetailView()
             case .image:
                 ImageDetailView()
+            case .glass:
+                GlassDetailView()
             }
         }
     }
