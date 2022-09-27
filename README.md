@@ -1,4 +1,4 @@
-# ![](Assets/Logo.png) Prism
+# Prism
 
 A lightweight 3D renderer for SwiftUI.
 
@@ -8,5 +8,5 @@ A lightweight 3D renderer for SwiftUI.
 - 100% SwiftUI. No SceneKit or other weird stuff.
 - Supports sizing, extrusion, levitation, and more.
 
-![](Assets/Transform.gif) | ![](Assets/Bounce.gif) | ![](Assets/Gradient.png) | ![](Assets/Image.png)
---- | --- | --- | ---
+![](Assets/Logo.png) | ![](Assets/Transform.gif) | ![](Assets/Bounce.gif) | ![](Assets/Gradient.png) | ![](Assets/Image.png)
+--- | --- | --- | --- | ---
