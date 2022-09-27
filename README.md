@@ -15,7 +15,7 @@ A lightweight 3D renderer for SwiftUI.
 
 ## Installation
 
-Requires iOS 13+. Prism can be installed through the [Swift Package Manager](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
+Requires iOS 13+ or macOS Catalina and up. Prism can be installed through the [Swift Package Manager](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app).
 
 ```
 https://github.com/aheze/Prism
@@ -76,7 +76,7 @@ Open an [issue](https://github.com/aheze/Prism/issues) or join the [Discord serv
 
 ### Apps Using Prism
 
-[Find](http://getfind.app) is an app that lets you find text in real life. Popovers is currently used for the search bar settings and the camera message view — download to check it out!
+[Find](http://getfind.app) is an app for browsing photos. Prism is used in the onboarding screen — download to check it out!
 
 
 https://user-images.githubusercontent.com/49819455/192427675-c66ca9fa-48f7-4730-92b3-d0d58fdf72c4.mp4
