@@ -15,14 +15,26 @@ struct BasicGalleryView: View {
 
     var body: some View {
         GalleryCardView(model: model, kind: .basic) {
-            PrismView(configuration: configuration) {
-                Color.blue
-            } left: {
-                Color.red
-            } right: {
-                Color.green
+            PrismCanvas(tilt: configuration.tilt) {
+                PrismView(configuration: configuration) {
+                    Color.blue
+                        .overlay {
+                            VStack(spacing: 12) {
+                                Image(systemName: "cube")
+                                    .font(.largeTitle)
+
+                                Text("Prism")
+                                    .textCase(.uppercase)
+                            }
+                            .foregroundColor(.white)
+                        }
+                } left: {
+                    Color.red
+                } right: {
+                    Color.green
+                }
             }
-            .frame(minHeight: 220)
+            .frame(minHeight: 240)
             .offset(y: 20)
         }
     }
@@ -35,6 +47,16 @@ struct BasicDetailView: View {
         PrismCanvas(tilt: configuration.tilt) {
             PrismView(configuration: configuration) {
                 Color.blue
+                    .overlay {
+                        VStack(spacing: 12) {
+                            Image(systemName: "cube")
+                                .font(.largeTitle)
+
+                            Text("Prism")
+                                .textCase(.uppercase)
+                        }
+                        .foregroundColor(.white)
+                    }
             } left: {
                 Color.red
             } right: {

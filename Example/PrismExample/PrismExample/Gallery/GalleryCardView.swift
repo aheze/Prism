@@ -9,6 +9,26 @@
 import Prism
 import SwiftUI
 
+struct GalleryTemplateCardView<Content: View>: View {
+    @ObservedObject var model: ViewModel
+    var kind: ExampleKind
+    @ViewBuilder var content: Content
+
+    var body: some View {
+        GalleryCardView(
+            model: model,
+            kind: kind
+        ) {
+            PrismCanvas(tilt: model.configuration.tilt) {
+                content
+            }
+            .frame(minHeight: 200)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 16)
+        }
+    }
+}
+
 struct GalleryCardView<Content: View>: View {
     @ObservedObject var model: ViewModel
     var kind: ExampleKind
@@ -19,12 +39,7 @@ struct GalleryCardView<Content: View>: View {
             model.path.append(kind)
         } label: {
             VStack(spacing: 0) {
-                PrismCanvas(configuration: model.configuration) {
-                    content
-                }
-                .frame(minHeight: 200)
-                .padding(.horizontal, 16)
-                .padding(.vertical, 16)
+                content
 
                 Divider()
 

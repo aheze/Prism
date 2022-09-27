@@ -13,7 +13,7 @@ struct GlassGalleryView: View {
     @ObservedObject var model: ViewModel
 
     var body: some View {
-        GalleryCardView(model: model, kind: .glass) {
+        GalleryTemplateCardView(model: model, kind: .glass) {
             PrismGlassView(
                 tilt: model.configuration.tilt,
                 size: model.configuration.size,

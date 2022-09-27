@@ -13,7 +13,7 @@ struct GradientGalleryView: View {
     @ObservedObject var model: ViewModel
 
     var body: some View {
-        GalleryCardView(model: model, kind: .gradient) {
+        GalleryTemplateCardView(model: model, kind: .gradient) {
             PrismGradientView(
                 tilt: model.configuration.tilt,
                 size: model.configuration.size,

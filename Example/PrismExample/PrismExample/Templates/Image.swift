@@ -13,7 +13,7 @@ struct ImageGalleryView: View {
     @ObservedObject var model: ViewModel
 
     var body: some View {
-        GalleryCardView(model: model, kind: .image) {
+        GalleryTemplateCardView(model: model, kind: .image) {
             PrismImageView(
                 tilt: model.configuration.tilt,
                 size: model.configuration.size,

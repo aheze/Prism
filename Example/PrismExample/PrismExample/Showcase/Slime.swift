@@ -14,21 +14,23 @@ struct SlimeGalleryView: View {
 
     var body: some View {
         GalleryCardView(model: model, kind: .slime) {
-            PrismView(
-                tilt: 0.3,
-                size: .init(width: 100, height: 100),
-                extrusion: 60
-            ) {
-                Color.green
-                    .opacity(0.75)
-            } left: {
-                Color.green.brightness(-0.1)
-                    .opacity(0.5)
-            } right: {
-                Color.green.brightness(-0.3)
-                    .opacity(0.5)
+            PrismCanvas(tilt: model.configuration.tilt) {
+                PrismView(
+                    tilt: 0.3,
+                    size: .init(width: 100, height: 100),
+                    extrusion: 60
+                ) {
+                    Color.green
+                        .opacity(0.75)
+                } left: {
+                    Color.green.brightness(-0.1)
+                        .opacity(0.5)
+                } right: {
+                    Color.green.brightness(-0.3)
+                        .opacity(0.5)
+                }
             }
-            .frame(minHeight: 220)
+            .frame(minHeight: 240)
             .offset(y: 20)
         }
     }

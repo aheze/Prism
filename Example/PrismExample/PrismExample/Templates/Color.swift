@@ -13,7 +13,7 @@ struct ColorGalleryView: View {
     @ObservedObject var model: ViewModel
 
     var body: some View {
-        GalleryCardView(model: model, kind: .color) {
+        GalleryTemplateCardView(model: model, kind: .color) {
             PrismColorView(
                 tilt: model.configuration.tilt,
                 size: model.configuration.size,
