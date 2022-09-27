@@ -11,7 +11,7 @@ import SwiftUI
 
 struct GalleryCardView<Content: View>: View {
     @ObservedObject var model: ViewModel
-    var kind: TemplateKind
+    var kind: ExampleKind
     @ViewBuilder var content: Content
 
     var body: some View {

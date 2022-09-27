@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct PrismView<Content: View, Left: View, Right: View>: View {
+public struct PrismView<Content: View, Left: View, Right: View>: View {
     var configuration: PrismConfiguration
     @ViewBuilder var content: Content
     @ViewBuilder var left: Left
@@ -26,7 +26,7 @@ struct PrismView<Content: View, Left: View, Right: View>: View {
         self.right = right()
     }
 
-    var body: some View {
+    public var body: some View {
         let topRightOffset = configuration.tilt * configuration.size.width
         let topAngle = atan2(topRightOffset, configuration.size.width)
 
@@ -77,8 +77,8 @@ struct PrismView<Content: View, Left: View, Right: View>: View {
     }
 }
 
-extension PrismView {
-    public init(
+public extension PrismView {
+    init(
         tilt: CGFloat,
         size: CGSize,
         extrusion: CGFloat,

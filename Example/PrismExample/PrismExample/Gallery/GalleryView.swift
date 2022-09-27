@@ -9,7 +9,9 @@
 import Prism
 import SwiftUI
 
-enum TemplateKind: String {
+enum ExampleKind: String {
+    case slime = "Slime"
+
     case color = "Color"
     case gradient = "Gradient"
     case image = "Image"
@@ -26,11 +28,10 @@ struct GalleryView: View {
     var body: some View {
         LazyVGrid(columns: columns, spacing: 8) {
             Section {
-                ColorGalleryView(model: model)
+                SlimeGalleryView(model: model)
 
-                GradientGalleryView(model: model)
             } header: {
-                Text("Examples")
+                Text("Showcase")
                     .foregroundColor(UIColor.secondaryLabel.color)
                     .textCase(.uppercase)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -53,8 +54,11 @@ struct GalleryView: View {
             }
         }
         .padding(.horizontal, 20)
-        .navigationDestination(for: TemplateKind.self) { kind in
+        .navigationDestination(for: ExampleKind.self) { kind in
             switch kind {
+            case .slime:
+                SlimeDetailView()
+
             case .color:
                 ColorDetailView()
             case .gradient:
