@@ -1,4 +1,4 @@
-# Prism
+# ![](Assets/Logo.png) Prism
 
 A lightweight 3D renderer for SwiftUI.
 
