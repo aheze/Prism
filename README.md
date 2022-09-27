@@ -4,8 +4,10 @@ A lightweight 3D renderer for SwiftUI.
 
 - Works with any SwiftUI `View`.
 - Fully interactive and animatable.
-- Powered by perspective transforms.
+- Compatible with all SwiftUI modifiers.
+- Will not affect sizing (unlike GeometryReader...)
 - 100% SwiftUI. No SceneKit or other weird stuff.
+- Powered by perspective transforms, so it's fast.
 - Supports sizing, extrusion, levitation, and more.
 
 ![Logo cube](Assets/Logo.png) | ![Square that animates into a cube, with border](Assets/Transform.gif) | ![3 green cubes that bounce on click](Assets/Bounce.gif) | ![Thin, levitating blue prism](Assets/Gradient.png) | ![Prism with an image on each side](Assets/Image.png)
@@ -21,7 +23,7 @@ https://github.com/aheze/Prism
 
 ## Usage
 
-Prism is designed to be easy to use. First, define a `PrismConfiguration` for customization. Then just add a `PrismCanvas`, which can contain as many `PrismView`s as you'd like.
+Prism is designed to be easy to use. First, define a `PrismConfiguration` for customization. Then add a `PrismCanvas`, which can contain as many `PrismView`s as you'd like.
 
 ```swift
 struct ContentView: View {
@@ -52,14 +54,19 @@ struct ContentView: View {
 
 ## Example
 
-Includes various samples of the library. [Download](https://github.com/aheze/Prism/archive/refs/heads/main.zip) it here!
+The example app includes a bunch of samples to play with. [Download](https://github.com/aheze/Prism/archive/refs/heads/main.zip) it here!
 
 <img src="Assets/Example.png" width="300" alt="Screenshot of example app">
 
+## Customization
+
+Prism supports extensive customization through the [`PrismConfiguration`](https://github.com/aheze/Prism/blob/main/Sources/PrismConfiguration.swift) struct. Check out the example app for an editor!
+
+https://user-images.githubusercontent.com/49819455/192427694-1b91805a-4fc0-4a3a-985f-ac57c0dd8f95.mp4
 
 ## Community
 ### Author
-Popovers is made by [aheze](https://github.com/aheze).
+Prism is made by [aheze](https://github.com/aheze).
 
 ### Contributing
 All contributions are welcome. Just [fork](https://github.com/aheze/Prism/fork) the repo, then make a pull request.
@@ -67,13 +74,15 @@ All contributions are welcome. Just [fork](https://github.com/aheze/Prism/fork) 
 ### Need Help?
 Open an [issue](https://github.com/aheze/Prism/issues) or join the [Discord server](https://discord.com/invite/Pmq8fYcus2). You can also ping me on [Twitter](https://twitter.com/aheze0). Or read the source code — there's lots of comments.
 
-### Apps Using Popovers
+### Apps Using Prism
 
-[Find](http://getfind.app/) is an app that lets you find text in real life. Popovers is currently used for the search bar settings and the camera message view — download to check it out!
+[Find](http://getfind.app) is an app that lets you find text in real life. Popovers is currently used for the search bar settings and the camera message view — download to check it out!
 
 
+https://user-images.githubusercontent.com/49819455/192427675-c66ca9fa-48f7-4730-92b3-d0d58fdf72c4.mp4
 
-If you have an app that uses Popovers, just make a PR or [message me](https://twitter.com/aheze0).
+
+If you have an app that uses Prism, just make a PR or [message me](https://twitter.com/aheze0).
 
 ## License
 
