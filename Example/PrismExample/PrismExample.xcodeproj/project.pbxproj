@@ -24,7 +24,7 @@
 		3C35DD3C28E286A4006B7A47 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD3B28E286A4006B7A47 /* Utilities.swift */; };
 		3C35DD3E28E28800006B7A47 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD3D28E28800006B7A47 /* Transform.swift */; };
 		3C35DD4028E28804006B7A47 /* Basic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD3F28E28804006B7A47 /* Basic.swift */; };
-		3C35DD4228E28818006B7A47 /* Columns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD4128E28818006B7A47 /* Columns.swift */; };
+		3C35DD4228E28818006B7A47 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD4128E28818006B7A47 /* Logo.swift */; };
 		3C35DD4428E28827006B7A47 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C35DD4328E28827006B7A47 /* Models.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,7 @@
 		3C35DD3B28E286A4006B7A47 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3C35DD3D28E28800006B7A47 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		3C35DD3F28E28804006B7A47 /* Basic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basic.swift; sourceTree = "<group>"; };
-		3C35DD4128E28818006B7A47 /* Columns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Columns.swift; sourceTree = "<group>"; };
+		3C35DD4128E28818006B7A47 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		3C35DD4328E28827006B7A47 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,7 +132,7 @@
 				3C35DD3F28E28804006B7A47 /* Basic.swift */,
 				3C35DD3928E2846D006B7A47 /* Slime.swift */,
 				3C35DD3D28E28800006B7A47 /* Transform.swift */,
-				3C35DD4128E28818006B7A47 /* Columns.swift */,
+				3C35DD4128E28818006B7A47 /* Logo.swift */,
 			);
 			path = Showcase;
 			sourceTree = "<group>";
@@ -227,7 +227,7 @@
 				3C35DD4428E28827006B7A47 /* Models.swift in Sources */,
 				3C35DD2C28E25DFD006B7A47 /* GalleryView.swift in Sources */,
 				3C35DD3728E28269006B7A47 /* Glass.swift in Sources */,
-				3C35DD4228E28818006B7A47 /* Columns.swift in Sources */,
+				3C35DD4228E28818006B7A47 /* Logo.swift in Sources */,
 				3C35DD3328E27E19006B7A47 /* Gradient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

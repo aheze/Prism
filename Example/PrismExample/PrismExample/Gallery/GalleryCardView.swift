@@ -39,7 +39,11 @@ struct GalleryCardView<Content: View>: View {
             model.path.append(kind)
         } label: {
             VStack(spacing: 0) {
-                content
+                VStack {
+                    content
+                }
+                .frame(maxWidth: .infinity)
+                .clipped()
 
                 Divider()
 

@@ -12,6 +12,7 @@ import SwiftUI
 enum ExampleKind: String {
     case basic = "Basic"
     case slime = "Slime"
+    case transform = "Transform"
 
     case color = "Color"
     case gradient = "Gradient"
@@ -32,6 +33,8 @@ struct GalleryView: View {
                 BasicGalleryView(model: model)
 
                 SlimeGalleryView(model: model)
+
+                TransformGalleryView(model: model)
             } header: {
                 Text("Showcase")
                     .foregroundColor(UIColor.secondaryLabel.color)
@@ -62,7 +65,8 @@ struct GalleryView: View {
                 BasicDetailView()
             case .slime:
                 SlimeDetailView()
-
+            case .transform:
+                TransformDetailView()
             case .color:
                 ColorDetailView()
             case .gradient:
