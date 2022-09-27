@@ -25,13 +25,20 @@ struct GalleryView: View {
 
     var body: some View {
         LazyVGrid(columns: columns, spacing: 8) {
-            ColorGalleryView(model: model)
+            Section {
+                ColorGalleryView(model: model)
 
-            GradientGalleryView(model: model)
+                GradientGalleryView(model: model)
 
-            ImageGalleryView(model: model)
+                ImageGalleryView(model: model)
 
-            GlassGalleryView(model: model)
+                GlassGalleryView(model: model)
+            } header: {
+                Text("Templates")
+                    .foregroundColor(UIColor.secondaryLabel.color)
+                    .textCase(.uppercase)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
         }
         .padding(.horizontal, 20)
         .navigationDestination(for: DetailKind.self) { kind in
