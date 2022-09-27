@@ -8,15 +8,31 @@
 
 import SwiftUI
 
+/**
+ Values used for configuring `PrismView`.
+ */
 public struct PrismConfiguration {
+    /// How much to tilt the prism by. This must match the `tilt` passed into `PrismCanvas`.
     public var tilt = CGFloat(0.25)
+
+    /// The width and height of the prism.
     public var size = CGSize(width: 100, height: 100)
+
+    /// The extrusion of the prism.
     public var extrusion = CGFloat(30)
 
+    /// The levitation (float) of the prism.
     public var levitation = CGFloat(0)
+
+    /// The color of the shadow.
     public var shadowColor = Color.black
+
+    /// The opacity of the shadow. Automatically adjusts as needed based on `levitation`.
     public var shadowOpacity = CGFloat(0.25)
 
+    /**
+     Values used for configuring `PrismView`.
+     */
     public init(
         tilt: CGFloat = CGFloat(0.25),
         size: CGSize = CGSize(width: 100, height: 100),

@@ -8,10 +8,16 @@
 
 import SwiftUI
 
+/**
+ A template for a gradient prism.
+ */
 public struct PrismGradientView: View {
     var configuration: PrismConfiguration
     var gradient: Gradient
 
+    /**
+     A template for a gradient prism.
+     */
     public init(
         configuration: PrismConfiguration,
         gradient: Gradient
@@ -34,6 +40,9 @@ public struct PrismGradientView: View {
 }
 
 public extension PrismGradientView {
+    /**
+     A template for a gradient prism. This is a convenience initializer.
+     */
     init(
         tilt: CGFloat,
         size: CGSize,

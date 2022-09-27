@@ -22,7 +22,7 @@ struct LogoGalleryView: View {
             PrismCanvas(tilt: configuration.tilt) {
                 LogoPrismView(configuration: $configuration)
             }
-            .scaleEffect(y: 0.78)
+            .scaleEffect(y: 0.76)
             .frame(minHeight: 240)
             .offset(y: 20)
         }
@@ -40,7 +40,7 @@ struct LogoDetailView: View {
         PrismCanvas(tilt: configuration.tilt) {
             LogoPrismView(configuration: $configuration)
         }
-        .scaleEffect(y: 0.78)
+        .scaleEffect(y: 0.76)
         .navigationTitle("Logo")
     }
 }
@@ -54,11 +54,11 @@ struct LogoPrismView: View {
 
     var body: some View {
         PrismView(configuration: configuration) {
-            side(from: .topLeading, to: .bottomTrailing, fromColor: Color.yellow.opacity(0.75), toColor: Color.white)
+            side(from: .topLeading, to: .bottomTrailing, fromColor: Color.pink.opacity(0.75), toColor: Color.white)
         } left: {
-            side(from: .bottomTrailing, to: .topTrailing, fromColor: Color.cyan.opacity(0.75), toColor: Color.white)
+            side(from: .bottomTrailing, to: .topTrailing, fromColor: Color.green.opacity(0.75), toColor: Color.white)
         } right: {
-            side(from: .bottomTrailing, to: .topLeading, fromColor: Color.green.opacity(0.75), toColor: Color.white)
+            side(from: .bottomTrailing, to: .topLeading, fromColor: Color.yellow.opacity(0.75), toColor: Color.white)
         }
     }
 

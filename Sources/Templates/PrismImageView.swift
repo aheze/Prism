@@ -8,10 +8,16 @@
 
 import SwiftUI
 
+/**
+ A template for an image-filled prism.
+ */
 public struct PrismImageView: View {
     var configuration: PrismConfiguration
     var image: Image
 
+    /**
+     A template for an image-filled prism.
+     */
     public init(
         configuration: PrismConfiguration,
         image: Image
@@ -39,6 +45,9 @@ public struct PrismImageView: View {
 }
 
 public extension PrismImageView {
+    /**
+     A template for an image-filled prism. This is a convenience initializer.
+     */
     init(
         tilt: CGFloat,
         size: CGSize,

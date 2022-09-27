@@ -8,10 +8,16 @@
 
 import SwiftUI
 
+/**
+ A template for a solid-color prism.
+ */
 public struct PrismColorView: View {
     var configuration: PrismConfiguration
     var color: Color
 
+    /**
+     A template for a solid-color prism.
+     */
     public init(
         configuration: PrismConfiguration,
         color: Color
@@ -32,6 +38,9 @@ public struct PrismColorView: View {
 }
 
 public extension PrismColorView {
+    /**
+     A template for a solid-color prism. This is a convenience initializer.
+     */
     init(
         tilt: CGFloat,
         size: CGSize,

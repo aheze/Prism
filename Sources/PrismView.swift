@@ -8,12 +8,18 @@
 
 import SwiftUI
 
+/**
+ A 3D prism. Must be placed inside a `PrismCanvas.`
+ */
 public struct PrismView<Content: View, Left: View, Right: View>: View {
-    var configuration: PrismConfiguration
-    @ViewBuilder var content: Content
-    @ViewBuilder var left: Left
-    @ViewBuilder var right: Right
+    public var configuration: PrismConfiguration
+    @ViewBuilder public var content: Content
+    @ViewBuilder public var left: Left
+    @ViewBuilder public var right: Right
 
+    /**
+     A 3D prism. Must be placed inside a `PrismCanvas.`
+     */
     public init(
         configuration: PrismConfiguration,
         @ViewBuilder content: () -> Content,
@@ -35,16 +41,16 @@ public struct PrismView<Content: View, Left: View, Right: View>: View {
         let extrusionXOffset = sin(topAngle) * configuration.extrusion
         let extrusionYOffset = cos(topAngle) * configuration.extrusion
 
-        content
+        content /// The top side of the prism.
             .frame(width: configuration.size.width, height: configuration.size.height)
-            .background(
+            .background( /// The left side of the prism.
                 left
                     .frame(width: configuration.size.width, height: extrusionYOffset)
                     .tiltLeft(tilt: configuration.tilt)
                     .offset(y: extrusionYOffset),
                 alignment: .bottom
             )
-            .background(
+            .background( /// The left side of the prism.
                 Color.clear
                     .frame(width: extrusionYOffset, height: configuration.size.height)
                     .overlay(
@@ -56,6 +62,8 @@ public struct PrismView<Content: View, Left: View, Right: View>: View {
                     .offset(x: extrusionYOffset),
                 alignment: .trailing
             )
+
+            /// Apply the background.
             .background(
                 configuration.shadowColor
                     .shadow(
@@ -69,15 +77,18 @@ public struct PrismView<Content: View, Left: View, Right: View>: View {
                         y: levitationYOffset + extrusionYOffset + 10
                     )
                     .opacity(configuration.shadowOpacity)
-                    .opacity(CGFloat(1) - (CGFloat(configuration.levitation) / 400))
+                    .opacity(CGFloat(1) - (CGFloat(configuration.levitation) / 400)) /// Adjust the shadow and blue based on the `levitation`value.
                     .blur(radius: 10 + CGFloat(configuration.levitation) / 12)
             )
-            .offset(x: -levitationXOffset, y: -levitationYOffset) /// z height effect
-            .offset(x: -extrusionXOffset, y: -extrusionYOffset) /// extrusion effect
+            .offset(x: -levitationXOffset, y: -levitationYOffset) /// Z height effect.
+            .offset(x: -extrusionXOffset, y: -extrusionYOffset) /// Extrusion effect.
     }
 }
 
 public extension PrismView {
+    /**
+     A 3D prism. Must be placed inside a `PrismCanvas`. This is a convenience initializer.
+     */
     init(
         tilt: CGFloat,
         size: CGSize,

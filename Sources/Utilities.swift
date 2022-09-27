@@ -9,6 +9,8 @@
 import SwiftUI
 
 public extension UIColor {
+    
+    /// Return a SwiftUI `Color` from a `UIColor`.
     var color: Color {
         return Color(self)
     }

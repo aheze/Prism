@@ -8,11 +8,17 @@
 
 import SwiftUI
 
+/**
+ A template for a glass-style prism.
+ */
 public struct PrismGlassView: View {
     var configuration: PrismConfiguration
     var color: Color
     var opacity: CGFloat
 
+    /**
+     A template for a glass-style prism.
+     */
     public init(
         configuration: PrismConfiguration,
         color: Color,
@@ -38,6 +44,9 @@ public struct PrismGlassView: View {
 }
 
 public extension PrismGlassView {
+    /**
+     A template for a glass-style prism. This is a convenience initializer.
+     */
     init(
         tilt: CGFloat,
         size: CGSize,

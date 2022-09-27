@@ -8,9 +8,14 @@
 
 import SwiftUI
 
+/**
+ The base view for prisms.
+
+ This applies a perspective transform to simulate a 3D effect.
+ */
 public struct PrismCanvas<Content: View>: View {
-    var tilt: CGFloat
-    var content: Content
+    public var tilt: CGFloat
+    public var content: Content
 
     public init(
         tilt: CGFloat,
@@ -26,7 +31,15 @@ public struct PrismCanvas<Content: View>: View {
     }
 }
 
+
 public extension PrismCanvas {
+    /**
+     The base view for prisms.
+
+     This applies a perspective transform to simulate a 3D effect.
+     
+     This is a convenience initializer.
+     */
     init(
         configuration: PrismConfiguration,
         @ViewBuilder content: () -> Content
