@@ -43,6 +43,16 @@ struct DetailView<Content: View, Controls: View>: View {
                         .fontWeight(.semibold)
                     Divider()
                     sliders
+                    
+                    GridRow {
+                        Button("Randomize") {
+                            randomize()
+                        }
+                        .buttonStyle(.borderedProminent)
+                        
+                        Color.clear
+                            .gridCellUnsizedAxes(.horizontal)
+                    }
                 }
             }
             .padding(.vertical, 16)
@@ -69,9 +79,21 @@ struct DetailView<Content: View, Controls: View>: View {
             ExampleSliderView(title: "Width", value: width, range: 0 ... 200)
             ExampleSliderView(title: "Height", value: height, range: 0 ... 200)
             ExampleSliderView(title: "Extrusion", value: $configuration.extrusion, range: 0 ... 100)
-            ExampleSliderView(title: "Levitation", value: $configuration.levitation, range: 0 ... 200)
+            ExampleSliderView(title: "Levitation", value: $configuration.levitation, range: 0 ... 100)
             ExampleColorView(title: "Shadow Color", value: $configuration.shadowColor)
             ExampleSliderView(title: "Shadow Opacity", value: $configuration.shadowOpacity, range: 0 ... 1)
+        }
+    }
+    
+    func randomize() {
+        withAnimation(.spring()) {
+            configuration.tilt = CGFloat.random(in: 0 ..< 1)
+            configuration.size.height = CGFloat.random(in: 0 ..< 200)
+            configuration.size.width = CGFloat.random(in: 0 ..< 200)
+            configuration.extrusion = CGFloat.random(in: 0 ..< 100)
+            configuration.levitation = CGFloat.random(in: 0 ..< 100)
+            configuration.shadowColor = UIColor.random.color
+            configuration.shadowOpacity = CGFloat.random(in: 0 ..< 1)
         }
     }
 }

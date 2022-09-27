@@ -65,20 +65,27 @@ struct SlimeDetailView: View {
     ]
 
     var body: some View {
-        PrismCanvas(tilt: 0.3) {
-            HStack(spacing: 20) {
-                ForEach($displayedConfigurations) { $displayedConfiguration in
-                    let configuration = Binding {
-                        $displayedConfiguration.wrappedValue.configuration
-                    } set: { newValue in
-                        $displayedConfiguration.wrappedValue.configuration = newValue
-                    }
+        VStack {
+            Text("Tap me!")
+                .font(.title)
+                .foregroundColor(UIColor.secondaryLabel.color)
+                .offset(y: -200)
 
-                    SlimePrismView(configuration: configuration)
+            PrismCanvas(tilt: 0.3) {
+                HStack(spacing: 20) {
+                    ForEach($displayedConfigurations) { $displayedConfiguration in
+                        let configuration = Binding {
+                            $displayedConfiguration.wrappedValue.configuration
+                        } set: { newValue in
+                            $displayedConfiguration.wrappedValue.configuration = newValue
+                        }
+
+                        SlimePrismView(configuration: configuration)
+                    }
                 }
             }
         }
-        .navigationTitle("Color")
+        .navigationTitle("Slime")
     }
 }
 
