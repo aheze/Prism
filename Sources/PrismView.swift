@@ -50,7 +50,7 @@ public struct PrismView<Content: View, Left: View, Right: View>: View {
                     .offset(y: extrusionYOffset),
                 alignment: .bottom
             )
-            .background( /// The left side of the prism.
+            .background( /// The right side of the prism.
                 Color.clear
                     .frame(width: extrusionYOffset, height: configuration.size.height)
                     .overlay(
