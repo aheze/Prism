@@ -1,3 +1,6 @@
+<img width="200" alt="Island" src="https://user-images.githubusercontent.com/49819455/196879803-8f247975-57cb-4957-8795-3ae3dec52009.png">
+
+
 # Prism
 
 A lightweight 3D renderer for SwiftUI.
