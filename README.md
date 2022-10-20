@@ -1,4 +1,4 @@
-<img width="200" alt="Island" src="https://user-images.githubusercontent.com/49819455/196879803-8f247975-57cb-4957-8795-3ae3dec52009.png">
+<img width="200" alt="Island" src="Assets/Island.gif">
 
 
 # Prism
@@ -8,10 +8,11 @@ A lightweight 3D renderer for SwiftUI.
 - Works with any SwiftUI `View`.
 - Fully interactive and animatable.
 - Compatible with all SwiftUI modifiers.
-- Will not affect sizing (unlike GeometryReader...)
-- 100% SwiftUI. No SceneKit or other weird stuff.
+- No positioning side effects, unlike GeometryReader.
+- 100% SwiftUI — no SceneKit, SpriteKit, etc.
 - Powered by perspective transforms, so it's fast.
 - Supports sizing, extrusion, levitation, and more.
+- Compose complex scenes with a familiar API.
 
 ![Logo cube](Assets/Logo.png) | ![Square that animates into a cube, with border](Assets/Transform.gif) | ![3 green cubes that bounce on click](Assets/Bounce.gif) | ![Thin, levitating blue prism](Assets/Gradient.png) | ![Prism with an image on each side](Assets/Image.png)
 --- | --- | --- | --- | ---
