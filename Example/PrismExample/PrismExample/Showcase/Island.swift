@@ -182,8 +182,9 @@ extension IslandView {
                                         UIApplication.shared.open(url)
                                     }
                                 } label: {
-                                    Text("@aheze0")
+                                    Text("PRISM")
                                         .font(.system(size: 28, weight: .ultraLight, design: .serif))
+                                        .tracking(8)
                                         .foregroundColor(Color.pink)
                                         .shadow(
                                             color: Color.black.opacity(0.25),
@@ -195,7 +196,7 @@ extension IslandView {
                                 .buttonStyle(.scaling)
                                 .fixedSize()
                                 .rotationEffect(.degrees(-90))
-                                .offset(x: -4, y: 20)
+                                .offset(y: 20)
                             }
 
                         park
@@ -235,6 +236,7 @@ extension IslandView {
                 .overlay {
                     Text("Made with SwiftUI")
                         .font(.system(size: 24, weight: .semibold, design: .serif))
+                        .opacity(0.25)
                 }
 
         } right: {
