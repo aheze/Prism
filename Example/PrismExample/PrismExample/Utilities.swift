@@ -88,7 +88,7 @@ extension UIColor {
             alpha: 1.0
         )
     }
-    
+
     var hsba: (h: CGFloat, s: CGFloat, b: CGFloat, a: CGFloat) {
         var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
@@ -106,5 +106,45 @@ extension UIColor {
         }
         let normalizedHue = newHue.truncatingRemainder(dividingBy: 1)
         return UIColor(hue: normalizedHue, saturation: s, brightness: b, alpha: a)
+    }
+}
+
+extension UIColor {
+    convenience init(hex: Int, alpha: CGFloat = 1) {
+        self.init(hex: UInt(hex), alpha: alpha)
+    }
+
+    convenience init(hex: UInt, alpha: CGFloat = 1) {
+        self.init(
+            red: CGFloat((hex & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((hex & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(hex & 0x0000FF) / 255.0,
+            alpha: alpha
+        )
+    }
+
+    /// darken or lighten
+    func adjust(by offset: CGFloat) -> UIColor {
+        let (r, g, b) = rgb
+        let newR = r + offset
+        let newG = g + offset
+        let newB = b + offset
+
+        return UIColor(red: newR, green: newG, blue: newB, alpha: 1)
+    }
+
+    var rgb: (r: CGFloat, g: CGFloat, b: CGFloat) {
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        if self.getRed(&r, green: &g, blue: &b, alpha: &a) {
+            return (r: r, g: g, b: b)
+        } else {
+            return (0, 0, 0)
+        }
+    }
+}
+
+extension Color {
+    init(hex: UInt, alpha: CGFloat = 1) {
+        self.init(UIColor(hex: hex, alpha: alpha))
     }
 }
