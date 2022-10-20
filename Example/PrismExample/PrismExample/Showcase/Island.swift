@@ -34,9 +34,13 @@ struct IslandDetailView: View {
     @State var scale = CGFloat(0.6)
     @State var offset = CGFloat(20)
 
+    @State var savedTranslation = CGFloat(0)
+    @GestureState var translation = CGFloat(0)
+    @State var translationStore = CGFloat(0) /// backup store since `GestureState` auto-resets to 0
+
     var body: some View {
         VStack(spacing: 20) {
-            Text("Try tapping the boat")
+            Text("Welcome!")
                 .font(.system(.title, design: .serif, weight: .light))
 
             IslandView(tilt: tilt, scale: scale, offset: offset)
@@ -44,6 +48,14 @@ struct IslandDetailView: View {
                 .background(UIColor.systemBackground.color)
                 .cornerRadius(16)
                 .shadow(color: .black.opacity(0.25), radius: 6, x: 0, y: 2)
+
+            VStack(spacing: 14) {
+                Text("Drag horizontally to move.")
+
+                Text("Try tapping the boat!")
+            }
+            .font(.system(.title2, design: .serif, weight: .light))
+            .foregroundColor(UIColor.secondaryLabel.color)
 
             Spacer()
         }
@@ -54,23 +66,27 @@ struct IslandDetailView: View {
         }
         .simultaneousGesture(
             DragGesture(minimumDistance: 0)
-                .onChanged { value in
-                    let horizontal = -value.translation.width / 100
-                    tilt = 0.4 + horizontal
-                    scale = 0.6 + -horizontal / 8
-                    offset = 20 + -horizontal / 12
-                }
-                .onEnded { _ in
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                        withAnimation(.spring(response: 1.3, dampingFraction: 0.95, blendDuration: 1)) {
-                            tilt = 0.4
-                            scale = 0.6
-                            offset = 20
-                        }
+                .updating($translation) { value, state, transaction in
+                    state = value.translation.width
+
+                    let totalTranslation = savedTranslation + translation
+                    let adjustedTranslation = -totalTranslation / 100
+                    var adjustedTilt = 0.4 + adjustedTranslation
+                    adjustedTilt = min(max(0.0001, adjustedTilt), 2)
+
+                    DispatchQueue.main.async {
+                        tilt = adjustedTilt
+                        scale = 0.6 - adjustedTranslation / 8
+                        offset = 20 - adjustedTranslation / 12
+
+                        self.translationStore = value.translation.width
                     }
                 }
+                .onEnded { value in
+                    savedTranslation += translationStore
+                }
         )
-        .navigationTitle("Interaction")
+        .navigationTitle("Island")
     }
 }
 
@@ -160,6 +176,27 @@ extension IslandView {
                         /// middle separator
                         Color.clear
                             .frame(width: 60)
+                            .overlay {
+                                Button {
+                                    if let url = URL(string: "https://twitter.com/aheze0") {
+                                        UIApplication.shared.open(url)
+                                    }
+                                } label: {
+                                    Text("@aheze0")
+                                        .font(.system(size: 28, weight: .ultraLight, design: .serif))
+                                        .foregroundColor(Color.pink)
+                                        .shadow(
+                                            color: Color.black.opacity(0.25),
+                                            radius: 6,
+                                            x: 0,
+                                            y: 0
+                                        )
+                                }
+                                .buttonStyle(.scaling)
+                                .fixedSize()
+                                .rotationEffect(.degrees(-90))
+                                .offset(x: -4, y: 20)
+                            }
 
                         park
                     }
@@ -195,6 +232,11 @@ extension IslandView {
             }
         } left: {
             Color(hex: 0xB5C0C7).brightness(-0.1)
+                .overlay {
+                    Text("Made with SwiftUI")
+                        .font(.system(size: 24, weight: .semibold, design: .serif))
+                }
+
         } right: {
             Color(hex: 0xB5C0C7).brightness(-0.2)
         }
