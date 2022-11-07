@@ -69,14 +69,11 @@ Prism supports extensive customization through the [`PrismConfiguration`](https:
 https://user-images.githubusercontent.com/49819455/192427694-1b91805a-4fc0-4a3a-985f-ac57c0dd8f95.mp4
 
 ## Community
-### Author
-Prism is made by [aheze](https://github.com/aheze).
 
-### Contributing
-All contributions are welcome. Just [fork](https://github.com/aheze/Prism/fork) the repo, then make a pull request.
+Author | Contributing | Need Help?
+--- | --- | ---
+Find is made by [aheze](https://github.com/aheze). | All contributions are welcome. Just [fork](https://github.com/aheze/Prism/fork) the repo, then make a pull request. | Open an [issue](https://github.com/aheze/OpenFind/issues) or join the [Discord server](https://discord.com/invite/Pmq8fYcus2). You can also ping me on [Twitter](https://twitter.com/aheze0). Or read the source code — there's lots of comments.
 
-### Need Help?
-Open an [issue](https://github.com/aheze/Prism/issues) or join the [Discord server](https://discord.com/invite/Pmq8fYcus2). You can also ping me on [Twitter](https://twitter.com/aheze0). Or read the source code — there's lots of comments.
 
 ### Apps Using Prism
 
