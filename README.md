@@ -1,5 +1,8 @@
-<img width="200" alt="Island" src="Assets/Island.gif">
+![Banner for SwiftUICraft, an app made with this library](Assets/Banner.jpg)
 
+---
+
+<img width="200" alt="Island" src="Assets/Island.gif">
 
 # Prism
 
