@@ -69,19 +69,19 @@ Prism supports extensive customization through the [`PrismConfiguration`](https:
 https://user-images.githubusercontent.com/49819455/192427694-1b91805a-4fc0-4a3a-985f-ac57c0dd8f95.mp4
 
 ## Community
-### Author
-Prism is made by [aheze](https://github.com/aheze).
 
-### Contributing
-All contributions are welcome. Just [fork](https://github.com/aheze/Prism/fork) the repo, then make a pull request.
+Author | Contributing | Need Help?
+--- | --- | ---
+Prism is made by [aheze](https://github.com/aheze). | All contributions are welcome. Just [fork](https://github.com/aheze/Prism/fork) the repo, then make a pull request. | Open an [issue](https://github.com/aheze/Prism/issues) or join the [Discord server](https://discord.com/invite/Pmq8fYcus2). You can also ping me on [Twitter](https://twitter.com/aheze0). Or read the source code — there's lots of comments.
 
-### Need Help?
-Open an [issue](https://github.com/aheze/Prism/issues) or join the [Discord server](https://discord.com/invite/Pmq8fYcus2). You can also ping me on [Twitter](https://twitter.com/aheze0). Or read the source code — there's lots of comments.
 
 ### Apps Using Prism
 
-[Find](http://getfind.app) is an app for browsing photos. Prism is used in the onboarding screen — download to check it out!
+[**SwiftUICraft**](https://github.com/aheze/SwiftUICraft) is Minecraft but made with Prism. You can move, add blocks, add water, switch worlds, and more. Thanks to Prism it's 100% SwiftUI with literally nothing else!
 
+https://user-images.githubusercontent.com/49819455/200998762-50a279ca-6460-4aa9-bb85-0d1b96c580ed.mp4
+
+[**Find**](http://getfind.app) is an app for browsing photos. Prism is used in the onboarding screen — download to check it out!
 
 https://user-images.githubusercontent.com/49819455/192427675-c66ca9fa-48f7-4730-92b3-d0d58fdf72c4.mp4
 
