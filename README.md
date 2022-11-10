@@ -1,4 +1,4 @@
-[![Banner for SwiftUICraft, an app made with this library](Assets/Header.jpg)](https://github.com/aheze/SwiftUICraft)
+[![Banner for SwiftUICraft, an app made with this library](Assets/Announcement.jpg)](https://github.com/aheze/SwiftUICraft)
 
 <img width="200" alt="Island" src="Assets/Island.gif">
 
