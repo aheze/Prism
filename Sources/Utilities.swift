@@ -8,6 +8,9 @@
 
 import SwiftUI
 
+#if os(macOS)
+typealias UIColor = NSColor
+#endif
 public extension UIColor {
     
     /// Return a SwiftUI `Color` from a `UIColor`.
