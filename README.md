@@ -92,7 +92,7 @@ If you have an app that uses Prism, just make a PR or [message me](https://twitt
 ```
 MIT License
 
-Copyright (c) 2022 A. Zheng
+Copyright (c) 2023 A. Zheng
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
