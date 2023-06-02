@@ -62,6 +62,17 @@ public struct PrismView<Content: View, Left: View, Right: View>: View {
                     .offset(x: extrusionYOffset),
                 alignment: .trailing
             )
+            .background( /// The right mirror / left side of the prism.
+                Color.clear
+                    .frame(width: extrusionYOffset, height: configuration.size.height)
+                    .overlay(
+                        right
+                            .frame(width: configuration.size.height, height: extrusionYOffset)
+                            .rotationEffect(.degrees(-90))
+                    )
+                    .tiltRight(tilt: configuration.tilt),
+                alignment: .leading
+            )
 
             /// Apply the background.
             .background(
@@ -114,3 +125,58 @@ public extension PrismView {
         self.right = right()
     }
 }
+
+struct PrismViewPreview: View {
+    @State var tilt = CGFloat(-0.5)
+
+    var body: some View {
+        VStack {
+            PrismCanvas(tilt: tilt) {
+                PrismView(tilt: tilt, size: CGSize(width: 50, height: 50), extrusion: 50) {
+                    Color.blue
+                } left: {
+                    Color.green
+                } right: {
+                    Color.orange
+                }
+            }
+
+            Slider(value: $tilt, in: -1 ... 1)
+        }
+    }
+}
+
+struct PrismViewPreviewProvider: PreviewProvider {
+    static var previews: some View {
+        PrismViewPreview()
+    }
+}
+
+public struct PrismRightMirrorEffect: GeometryEffect {
+    public var tilt: CGFloat
+
+    public var animatableData: CGFloat {
+        get { tilt }
+        set { tilt = newValue }
+    }
+
+    public func effectValue(size: CGSize) -> ProjectionTransform {
+        return ProjectionTransform(
+            //            CGAffineTransform.identity
+//                .concatenating(CGAffineTransform(scaleX: 4, y: 1))
+//                .concatenating(CGAffineTransform(rotationAngle: 0.5))
+//            CGAffineTransform(a: tilt, b: -tilt + (1 - tilt), c: 0, d: 1, tx: 0, ty: 0)
+//            CGAffineTransform(a: tilt, b: tilt + (1 - tilt), c: 0, d: 1, tx: 0, ty: 0)
+//            CGAffineTransform(a: tilt, b: tilt + (1 - tilt), c: 0, d: 1, tx: 0, ty: 0)
+//            CGAffineTransform(a: tilt + (1 - tilt), b: 0, c: tilt, d: 1, tx: 0, ty: 0)
+//            CGAffineTransform(a: tilt, b: 1, c: 0, d: 1, tx: 0, ty: 0)
+            CGAffineTransform(a: -tilt, b: -1, c: 0, d: 1, tx: 0, ty: 0)
+        )
+    }
+}
+
+/// left
+// CGAffineTransform(a: 1, b: 0, c: tilt, d: 1, tx: 0, ty: 0)
+
+/// right
+// CGAffineTransform(a: tilt, b: 1, c: 0, d: 1, tx: 0, ty: 0)

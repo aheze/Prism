@@ -22,6 +22,14 @@ public extension View {
             PrismRightEffect(tilt: tilt)
         )
     }
+    
+    /// Mirror the right side on the left.
+    func tiltRightMirror(tilt: CGFloat) -> some View {
+        modifier(
+            PrismRightMirrorEffect(tilt: tilt)
+        )
+    }
+    
 
     /// Perspective transform for the top side of the extruded prism.
     func tiltContent(tilt: CGFloat) -> some View {
@@ -58,10 +66,25 @@ public struct PrismRightEffect: GeometryEffect {
 
     public func effectValue(size: CGSize) -> ProjectionTransform {
         return ProjectionTransform(
-            CGAffineTransform(a: tilt, b: tilt + (1 - tilt), c: 0, d: 1, tx: 0, ty: 0)
+            CGAffineTransform(a: tilt, b: 1, c: 0, d: 1, tx: 0, ty: 0)
         )
     }
 }
+
+//public struct PrismRightMirrorEffect: GeometryEffect {
+//    public var tilt: CGFloat
+//
+//    public var animatableData: CGFloat {
+//        get { tilt }
+//        set { tilt = newValue }
+//    }
+//
+//    public func effectValue(size: CGSize) -> ProjectionTransform {
+//        return ProjectionTransform(
+//            CGAffineTransform(a: -tilt, b: tilt + (1 - tilt), c: 0, d: 1, tx: 0, ty: 0)
+//        )
+//    }
+//}
 
 /// Perspective transform for the top side of the extruded prism.
 public struct PrismContentEffect: GeometryEffect {
