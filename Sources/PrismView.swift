@@ -59,7 +59,8 @@ public struct PrismView<Content: View, Left: View, Right: View>: View {
                             .rotationEffect(.degrees(-90))
                     )
                     .tiltRight(tilt: configuration.tilt)
-                    .offset(x: extrusionYOffset),
+                    .offset(x: extrusionYOffset)
+                    .opacity(configuration.tilt > 0 ? 1 : 0),
                 alignment: .trailing
             )
             .background( /// The right mirror / left side of the prism.
@@ -70,7 +71,8 @@ public struct PrismView<Content: View, Left: View, Right: View>: View {
                             .frame(width: configuration.size.height, height: extrusionYOffset)
                             .rotationEffect(.degrees(-90))
                     )
-                    .tiltRight(tilt: configuration.tilt),
+                    .tiltRight(tilt: configuration.tilt)
+                    .opacity(configuration.tilt > 0 ? 0 : 1),
                 alignment: .leading
             )
 
